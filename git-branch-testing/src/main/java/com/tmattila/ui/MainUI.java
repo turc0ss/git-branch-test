@@ -5,6 +5,7 @@ import com.vaadin.annotations.Title;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
@@ -19,7 +20,12 @@ public class MainUI extends UI {
 	protected void init(VaadinRequest request) {
 		
 		VerticalLayout rootLayout = new VerticalLayout();
-		Label message = new Label("This is a test message");
+		
+		TextField text = new TextField("Name: ");
+		
+		Label message = new Label(text.getValue());
+		
+		rootLayout.addComponent(text);
 		rootLayout.addComponent(message);
 		
 		setContent(rootLayout);
