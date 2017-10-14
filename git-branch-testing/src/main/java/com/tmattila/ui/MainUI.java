@@ -38,5 +38,7 @@ public class MainUI extends UI {
 		
 		setContent(layout);
 		
+		// THIS IS WORKING SOLUTION WITH VAADIN 2.0.0
+		
 	}
 }
