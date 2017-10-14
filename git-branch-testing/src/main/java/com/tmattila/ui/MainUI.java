@@ -19,16 +19,24 @@ public class MainUI extends UI {
 	@Override
 	protected void init(VaadinRequest request) {
 		
-		VerticalLayout rootLayout = new VerticalLayout();
+		// A container that is 100% wide by default
+		VerticalLayout layout = new VerticalLayout();
+
+		// label will only take the space it needs
+		Label label = new Label();
 		
-		TextField text = new TextField("Name: ");
 		
-		Label message = new Label(text.getValue());
+		// Get the label's text to initialize a field
+		TextField editor = new TextField("Name: ", 
+		                                 label.getValue());
+
+		// Change the label's text
+		editor.addValueChangeListener(event -> label.setValue(event.getValue()));
 		
-		rootLayout.addComponent(text);
-		rootLayout.addComponent(message);
+		layout.addComponent(editor);
+		layout.addComponent(label);
 		
-		setContent(rootLayout);
+		setContent(layout);
 		
 	}
 }
